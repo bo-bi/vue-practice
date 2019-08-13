@@ -1,28 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <home>
+      <!-- <div>手机</div>
+      <div>U盘</div>
+      <hello-world></hello-world>  -->
+      <template v-slot:header="scope">
+        <p>美团外卖头部</p>
+        <p>{{ scope.content }}</p>
+      </template>
+      
+      <h3 slot="footer" slot-scope="scope">
+        美团外卖{{ scope.des }}---{{scope.$index}}
+        </h3>
+      
+    </home>  
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
+    
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
