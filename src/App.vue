@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    {{ fatherMsg }}
+
+    <!-- 这里 update:mysync 整体作为自定义事件名 -->
+    <sub-vue @fn="fn" :demo="demo" @update:mysync="mySync"></sub-vue>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SubVue from './components/Sub.vue'
 
 export default {
   name: 'app',
+  data () {
+    return {
+      fatherMsg: "",
+      demo: "样本数据",
+    }
+  },
   components: {
-    HelloWorld
+    SubVue,
+  },
+  methods: {
+    fn(data) {
+      this.fatherMsg = data;
+    },
+    mySync(data) {
+      this.demo = data;
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
