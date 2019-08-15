@@ -1,10 +1,6 @@
 <template>
   <div>
-      Sub
-      <button @click="send">向父组件传递数据</button>
       
-      <p>{{ demo }}</p>
-      <button @click="sendSync">模拟sync同步父组件中的demo数据</button>
   </div>
 </template>
 
